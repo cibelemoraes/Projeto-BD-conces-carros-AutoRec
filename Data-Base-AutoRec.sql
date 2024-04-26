@@ -47,3 +47,12 @@ CREATE TABLE PrecosPorAno (
     Preco DECIMAL(10,2),
     PRIMARY KEY (Ano)
 );
+
+CREATE TABLE Vendas (
+    ID INT AUTO_INCREMENT,
+    FuncionarioID INT,
+    LocacaoID INT,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (FuncionarioID) REFERENCES Funcionarios(ID),
+    FOREIGN KEY (LocacaoID) REFERENCES Locacoes(ID)
+);
