@@ -26,7 +26,7 @@ CREATE TABLE Carros (
     Modelo VARCHAR(50),
     Ano YEAR,
     Preco DECIMAL(10,2),
-    Status ENUM('Disponivel', 'Alugado'),
+    Status ENUM('Disponivel', 'Alugado', 'Manutencao'),
     PRIMARY KEY (ID)
 );
 
@@ -40,4 +40,10 @@ CREATE TABLE Locacoes (
     PRIMARY KEY (ID),
     FOREIGN KEY (ClienteID) REFERENCES Clientes(ID),
     FOREIGN KEY (CarroID) REFERENCES Carros(ID)
+);
+
+CREATE TABLE PrecosPorAno (
+    Ano YEAR,
+    Preco DECIMAL(10,2),
+    PRIMARY KEY (Ano)
 );
