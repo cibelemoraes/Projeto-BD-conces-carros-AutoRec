@@ -20,6 +20,15 @@ CREATE TABLE Funcionarios (
     PRIMARY KEY (ID)
 );
 
+CREATE TABLE Fornecedores (
+    ID INT AUTO_INCREMENT,
+    Nome VARCHAR(100),
+    Endereco VARCHAR(200),
+    Telefone VARCHAR(15),
+    Email VARCHAR(100),
+    PRIMARY KEY (ID)
+);
+
 CREATE TABLE Carros (
     ID INT AUTO_INCREMENT,
     Marca VARCHAR(50),
@@ -28,6 +37,15 @@ CREATE TABLE Carros (
     Preco DECIMAL(10,2),
     Status ENUM('Disponivel', 'Alugado', 'Manutencao'),
     PRIMARY KEY (ID)
+);
+
+CREATE TABLE Pecas (
+    ID INT AUTO_INCREMENT,
+    Nome VARCHAR(100),
+    Preco DECIMAL(10,2),
+    FornecedorID INT,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (FornecedorID) REFERENCES Fornecedores(ID)
 );
 
 CREATE TABLE Locacoes (
@@ -46,6 +64,15 @@ CREATE TABLE PrecosPorAno (
     Ano YEAR,
     Preco DECIMAL(10,2),
     PRIMARY KEY (Ano)
+);
+
+CREATE TABLE Caixa (
+    ID INT AUTO_INCREMENT,
+    Data DATE,
+    Entrada DECIMAL(10,2),
+    Saida DECIMAL(10,2),
+    Saldo DECIMAL(10,2),
+    PRIMARY KEY (ID)
 );
 
 CREATE TABLE Vendas (
